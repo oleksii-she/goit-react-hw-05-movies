@@ -2,11 +2,20 @@ import { HomeItem } from './homeItems';
 import PropTypes from 'prop-types';
 import { ListStyled } from './homeList.styled';
 
-export const HomeList = ({ items }) => {
+export const HomeList = ({ items, onClick }) => {
   return (
     <ListStyled>
-      {items.map(({ id, original_title, poster_path }) => {
-        return <HomeItem key={id} title={original_title} img={poster_path} />;
+      {items.map(({ id, original_title, poster_path, name }) => {
+        return (
+          <HomeItem
+            key={id}
+            title={original_title}
+            img={poster_path}
+            name={name}
+            onClick={onClick}
+            id={id}
+          />
+        );
       })}
     </ListStyled>
   );
@@ -18,6 +27,7 @@ HomeList.propTypes = {
       id: PropTypes.number.isRequired,
       poster_path: PropTypes.string.isRequired,
       original_title: PropTypes.string,
+      name: PropTypes.string,
     })
   ),
 };

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-export const HomeItem = ({ title, img }) => {
+export const HomeItem = ({ title, img, name, onClick, id }) => {
   return (
-    <li>
+    <li onClick={onClick} id={id}>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500${img}`}
@@ -9,7 +9,7 @@ export const HomeItem = ({ title, img }) => {
           height="574"
         />
       </div>
-      <h2>{title}</h2>
+      <h2>{title ?? name}</h2>
     </li>
   );
 };
@@ -17,4 +17,6 @@ export const HomeItem = ({ title, img }) => {
 HomeItem.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.number.isRequired,
 };
