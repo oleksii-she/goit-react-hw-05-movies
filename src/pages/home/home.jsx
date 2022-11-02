@@ -10,7 +10,7 @@ export const Home = () => {
       try {
         const resp = await TrendingApiMovie();
 
-        setItemsData(resp.data.results);
+        setItemsData(resp);
       } catch (error) {}
     };
     respApiTrending();
