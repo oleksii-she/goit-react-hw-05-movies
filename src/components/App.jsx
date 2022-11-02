@@ -1,6 +1,5 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
+import React from 'react';
 import { Home } from '../pages/home/home';
 import { Movies } from '../pages/movies/movies';
 import { MovieDetails } from '../pages/movieDetails/movieDetails';
