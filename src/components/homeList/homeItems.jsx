@@ -3,7 +3,11 @@ export const HomeItem = ({ title, img }) => {
   return (
     <li>
       <div>
-        <img src={`https://image.tmdb.org/t/p/w500${img}`} alt="" />
+        <img
+          src={`https://image.tmdb.org/t/p/w500${img}`}
+          alt=""
+          height="574"
+        />
       </div>
       <h2>{title}</h2>
     </li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
+
 export const Home = () => {
   const [itemsData, setItemsData] = useState([]);
 
@@ -14,8 +15,6 @@ export const Home = () => {
     };
     respApiTrending();
   }, []);
-
-  // console.log(itemsData);
 
   return <HomeList items={itemsData} />;
 };

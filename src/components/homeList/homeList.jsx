@@ -1,13 +1,14 @@
 import { HomeItem } from './homeItems';
 import PropTypes from 'prop-types';
+import { ListStyled } from './homeList.styled';
 
 export const HomeList = ({ items }) => {
   return (
-    <ul>
+    <ListStyled>
       {items.map(({ id, original_title, poster_path }) => {
         return <HomeItem key={id} title={original_title} img={poster_path} />;
       })}
-    </ul>
+    </ListStyled>
   );
 };
 

@@ -32,3 +32,8 @@ export const StyledLink = styled(NavLink)`
 export const Nav = styled.nav`
   display: flex;
 `;
+
+export const Section = styled.section`
+  padding-left: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[3]}px; ;
+`;
