@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 export const MovieDetails = () => {
   const [movies, setMovies] = useState('asda');
   const { movieId } = useParams();
-
+  console.log(movieId);
   useEffect(() => {
     const movieDetaliesApi = async () => {
       try {

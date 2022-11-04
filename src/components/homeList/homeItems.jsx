@@ -1,12 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 export const HomeItem = ({ title, img, name, id, defaultImg }) => {
-  const location = useLocation();
-
   return (
     <li>
       <div>
-        <Link to={`${id}`} state={{ from: location }}>
+        <Link to={`${id}`}>
           <img
             src={
               img !== null
