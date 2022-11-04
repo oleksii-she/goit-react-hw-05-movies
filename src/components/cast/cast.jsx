@@ -2,22 +2,28 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { getMovieCast } from 'api/moviApi';
-
+import { RejectedId } from 'components/rejected/rejected';
 export const Cast = () => {
   const [cast, setCast] = useState([]);
-  const { movieId } = useParams();
 
+  const { movieId } = useParams();
+  const [status, setStatus] = useState('idle');
   useEffect(() => {
     const movieCastApi = async () => {
       try {
         const resp = await getMovieCast(movieId);
         setCast(resp);
-      } catch (error) {}
+        setStatus('resolved');
+      } catch (error) {
+        setStatus('rejected');
+      }
     };
 
     movieCastApi();
   }, [movieId]);
-
+  if (status === 'rejected') {
+    <RejectedId />;
+  }
   return (
     <div>
       <h2>Cast</h2>

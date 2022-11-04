@@ -49,9 +49,14 @@ export const getMovieCast = async id => {
 
 export const getMovieReviews = async id => {
   const responce = await axios.get(
-    `https://api.themoviedb.org/3/movie/991833/reviews?page=1&api_key=bef2e1469ade062164db331fc6ab2f25`
+    `https://api.themoviedb.org/3/movie/${id}/reviews`,
+    {
+      params: {
+        api_key: 'bef2e1469ade062164db331fc6ab2f25',
+      },
+    }
   );
-  return responce;
+  return responce.data.results;
 };
 
 // https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
