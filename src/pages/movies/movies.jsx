@@ -9,9 +9,7 @@ export const Movies = () => {
   const [itemsData, setItemsData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
-  console.log(query);
   useEffect(() => {
-    console.log('asdas');
     const respSearchMovie = async () => {
       try {
         const resp = await searchApiMovie(query);
@@ -25,19 +23,13 @@ export const Movies = () => {
 
   const onSubmit = query => {
     const nextParams = query !== '' ? { query } : {};
-
     setSearchParams(nextParams);
-    // setSearchValue(query);
-  };
-  console.log(itemsData);
-  const onClickId = e => {
-    console.log(e.currentTarget.id);
   };
 
   return (
     <>
       <FormSearch onSubmitSearchValue={onSubmit} />
-      <HomeList items={itemsData} onClick={onClickId} />
+      <HomeList items={itemsData} />
     </>
   );
 };

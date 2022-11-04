@@ -15,9 +15,6 @@ export const Home = () => {
     };
     respApiTrending();
   }, []);
-  const onClickId = e => {
-    console.log(e.currentTarget.id);
-  };
-  console.log(itemsData);
-  return <HomeList items={itemsData} onClick={onClickId} />;
+
+  return <HomeList items={itemsData} />;
 };

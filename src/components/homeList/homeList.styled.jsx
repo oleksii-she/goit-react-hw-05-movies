@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const ListStyled = styled.ul`
-  display: flex;
   flex-wrap: wrap;
+  gap: 31px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   justify-content: center;
-
-  column-gap: 15px;
-  row-gap: 15px;
+  display: flex;
   list-style: none;
 `;

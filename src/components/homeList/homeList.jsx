@@ -1,8 +1,9 @@
 import { HomeItem } from './homeItems';
 import PropTypes from 'prop-types';
 import { ListStyled } from './homeList.styled';
-
-export const HomeList = ({ items, onClick }) => {
+const defaultImg =
+  'https://cdn.pixabay.com/photo/2014/03/25/16/27/movie-297135_960_720.png';
+export const HomeList = ({ items }) => {
   return (
     <ListStyled>
       {items.map(({ id, original_title, poster_path, name }) => {
@@ -12,8 +13,8 @@ export const HomeList = ({ items, onClick }) => {
             title={original_title}
             img={poster_path}
             name={name}
-            onClick={onClick}
             id={id}
+            defaultImg={defaultImg}
           />
         );
       })}
@@ -25,7 +26,7 @@ HomeList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      poster_path: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
       original_title: PropTypes.string,
       name: PropTypes.string,
     })
