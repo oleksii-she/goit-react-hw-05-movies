@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const Movies = () => {
   const [itemsData, setItemsData] = useState([]);
@@ -28,7 +28,7 @@ const Movies = () => {
       } catch (error) {}
     };
     respSearchMovie();
-  }, [query]);
+  }, [query, searchParams]);
 
   const onSubmit = query => {
     const nextParams = query !== '' ? { query } : {};
