@@ -5,7 +5,6 @@ import { searchApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
 
 const Movies = () => {
-  // const [searchValue, setSearchValue] = useState('');
   const [itemsData, setItemsData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
