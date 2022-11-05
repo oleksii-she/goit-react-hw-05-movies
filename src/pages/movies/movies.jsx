@@ -18,7 +18,7 @@ const Movies = () => {
         }
       } catch (error) {}
     };
-    respSearchMovie(query);
+    respSearchMovie();
   }, [searchParams]);
 
   const onSubmit = query => {
