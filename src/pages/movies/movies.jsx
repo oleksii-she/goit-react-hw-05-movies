@@ -6,7 +6,6 @@ import { HomeList } from 'components/homeList/homeList';
 import { RejectedId } from 'components/rejected/rejected';
 
 const Movies = () => {
-  const [status, setStatus] = useState('idle');
   const [itemsData, setItemsData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
@@ -18,9 +17,7 @@ const Movies = () => {
         if (resp.length > 0) {
           setItemsData(resp);
         }
-      } catch (error) {
-        setStatus('rejected');
-      }
+      } catch (error) {}
     };
     respSearchMovie();
   }, [query]);
