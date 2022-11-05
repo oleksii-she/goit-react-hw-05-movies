@@ -30,10 +30,6 @@ const Movies = () => {
     setSearchParams(nextParams);
   };
 
-  if (status === 'rejected') {
-    return <RejectedId />;
-  }
-
   return (
     <>
       <FormSearch onSubmitSearchValue={onSubmit} />
