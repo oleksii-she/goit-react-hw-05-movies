@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 export const Header = styled.header`
   top: 0px;
   left: 0px;
@@ -19,13 +20,22 @@ export const Header = styled.header`
 `;
 
 export const StyledLink = styled(NavLink)`
-  color: aqua;
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
   margin-left: 50px;
-  &:first-child {
-    margin-left: 0;
-  }
+
+  text-decoration: none;
+  color: #dca53d;
   &.active {
-    color: orange;
+    color: red;
+  }
+
+  :hover:not(.active),
+  :focus:not(.active) {
+    color: green;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 `;
 

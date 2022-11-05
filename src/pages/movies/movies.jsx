@@ -4,11 +4,12 @@ import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
 
-export const Movies = () => {
+const Movies = () => {
   // const [searchValue, setSearchValue] = useState('');
   const [itemsData, setItemsData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
+
   useEffect(() => {
     const respSearchMovie = async () => {
       try {
@@ -33,3 +34,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;
