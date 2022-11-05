@@ -3,7 +3,7 @@ import { Input, FormStyled, Button, Label } from './form.styled';
 import { FaSearch } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 
-export const FormSearch = ({ onSubmitSearchValue }) => {
+export const FormSearch = ({ onSubmitSearchValue, query }) => {
   const initialValues = {
     value: '',
   };
