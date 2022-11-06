@@ -32,7 +32,7 @@ const MovieDetails = () => {
   return (
     <div>
       <div>
-        <Link to={location.state?.from ?? '/home'}>go to back</Link>
+        <Link to={location.state?.from ?? '/'}>go to back</Link>
       </div>
       {movies && (
         <ContentBox>
