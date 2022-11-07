@@ -4,20 +4,34 @@ import { ListStyled } from './homeList.styled';
 const defaultImg =
   'https://cdn.pixabay.com/photo/2014/03/25/16/27/movie-297135_960_720.png';
 export const HomeList = ({ items }) => {
+  console.log(items);
   return (
     <ListStyled>
-      {items.map(({ id, original_title, poster_path, name }) => {
-        return (
-          <HomeItem
-            key={id}
-            title={original_title}
-            img={poster_path}
-            name={name}
-            id={id}
-            defaultImg={defaultImg}
-          />
-        );
-      })}
+      {items.map(
+        ({
+          id,
+          release_date,
+          original_title,
+          poster_path,
+          name,
+          vote_average,
+          genre_ids,
+        }) => {
+          return (
+            <HomeItem
+              key={id}
+              title={original_title}
+              img={poster_path}
+              name={name}
+              id={id}
+              defaultImg={defaultImg}
+              average={vote_average}
+              date={release_date}
+              ganre={genre_ids}
+            />
+          );
+        }
+      )}
     </ListStyled>
   );
 };
@@ -29,6 +43,9 @@ HomeList.propTypes = {
       poster_path: PropTypes.string,
       original_title: PropTypes.string,
       name: PropTypes.string,
+      vote_average: PropTypes.number,
+      release_date: PropTypes.string,
+      genre_ids: PropTypes.array,
     })
   ),
 };

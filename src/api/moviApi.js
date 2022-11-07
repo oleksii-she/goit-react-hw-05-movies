@@ -1,29 +1,31 @@
 import axios from 'axios';
 
-export const TrendingApiMovie = async () => {
+export const TrendingApiMovie = async page => {
   const responce = await axios.get(
     'https://api.themoviedb.org/3/trending/movie/day',
     {
       params: {
         api_key: 'bef2e1469ade062164db331fc6ab2f25',
+        page: `${page}`,
       },
     }
   );
 
-  return responce.data.results;
+  return responce.data;
 };
 
-export const searchApiMovie = async value => {
+export const searchApiMovie = async (value, page) => {
   const responce = await axios.get(
     `https://api.themoviedb.org/3/search/movie`,
     {
       params: {
         api_key: 'bef2e1469ade062164db331fc6ab2f25',
         query: `${value}`,
+        page: `${page}`,
       },
     }
   );
-  return responce.data.results;
+  return responce.data;
 };
 
 export const getMovieDetails = async id => {
