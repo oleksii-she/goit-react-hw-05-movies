@@ -95,25 +95,25 @@ export const HomeItem = ({
   genresInfo.map(el => {
     switch (el.id) {
       case ganre[0]:
-        return (ganre[0] = el.name);
+        ganre[0] = el.name;
         break;
       case ganre[1]:
-        return (ganre[1] = el.name);
+        ganre[1] = el.name;
         break;
       case ganre[2]:
-        return (ganre[2] = el.name);
+        ganre[2] = el.name;
         break;
       case ganre[3]:
-        return (ganre[3] = el.name);
+        ganre[3] = el.name;
         break;
       case ganre[4]:
-        return (ganre[4] = el.name);
+        ganre[4] = el.name;
         break;
 
       default:
-        return;
         break;
     }
+    return;
   });
 
   if (ganre.length > 3) {
