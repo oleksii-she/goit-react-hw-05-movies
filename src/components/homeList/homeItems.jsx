@@ -124,7 +124,7 @@ export const HomeItem = ({
       <ImgBox>
         <Average>{average.toFixed(1)}</Average>
         <picture>
-          <Link to={`/movies/${id} `} state={{ from: location }}>
+          <Link to={`/movies/${id}`} state={{ from: location }}>
             <Img
               src={
                 img !== null
