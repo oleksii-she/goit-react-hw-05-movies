@@ -4,11 +4,13 @@ import { HomeList } from 'components/homeList/homeList';
 import { RejectedId } from 'components/rejected/rejected';
 import { Container, Pagination, Stack, PaginationItem } from '@mui/material';
 import { useLocation, NavLink } from 'react-router-dom';
+import { SortFilter } from 'components/SortFilter/SortFilter';
 
-const Home = props => {
+const Home = () => {
   const location = useLocation();
 
   const [itemsData, setItemsData] = useState([]);
+  const [sortItems, setSortItems] = useState([]);
   const [page, setPage] = useState(
     parseInt(location.search?.split('=')[1] || 1)
   );
@@ -24,19 +26,28 @@ const Home = props => {
           setItemsData(resp.results);
           setPageQty(resp.total_pages);
         }
+        if (sortItems === []) {
+          setItemsData(resp.results);
+        }
       } catch (error) {
         setStatus('rejected');
       }
     };
     respApiTrending();
-  }, [page, pageQty]);
+  }, [page, pageQty, sortItems]);
+
+  const filter = sortData => {
+    setSortItems(sortData);
+  };
 
   if (status === 'rejected') {
     return <RejectedId />;
   }
   return (
     <>
-      <HomeList items={itemsData} />
+      <SortFilter items={itemsData} onChange={filter} page={page} />
+      <HomeList items={sortItems.length > 0 ? sortItems : itemsData} />
+
       <Container>
         <Stack spacing={2}>
           {!!pageQty && (

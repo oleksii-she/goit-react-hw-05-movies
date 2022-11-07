@@ -4,7 +4,6 @@ import { ListStyled } from './homeList.styled';
 const defaultImg =
   'https://cdn.pixabay.com/photo/2014/03/25/16/27/movie-297135_960_720.png';
 export const HomeList = ({ items }) => {
-  console.log(items);
   return (
     <ListStyled>
       {items.map(
