@@ -111,6 +111,7 @@ export const HomeItem = ({
         break;
 
       default:
+        return;
         break;
     }
   });
