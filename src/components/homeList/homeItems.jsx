@@ -118,6 +118,7 @@ export const HomeItem = ({
   if (ganre.length > 3) {
     return ganre.splice(0, 3);
   }
+  const ss = String(ganre).replaceAll(',', ', ');
   return (
     <Item>
       <ImgBox>
@@ -140,7 +141,7 @@ export const HomeItem = ({
       <div>
         <Title>{title ?? name}</Title>
         <p>{date.slice(0, 4)}</p>
-        <p>{String(ganre).replaceAll(',', ', ')}</p>
+        <p>{ss}</p>
       </div>
     </Item>
   );
