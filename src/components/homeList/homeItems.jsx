@@ -92,7 +92,7 @@ export const HomeItem = ({
 }) => {
   const location = useLocation();
 
-  genresInfo.map(el => {
+  genresInfo.forEach(el => {
     switch (el.id) {
       case ganre[0]:
         ganre[0] = el.name;
@@ -113,7 +113,6 @@ export const HomeItem = ({
       default:
         break;
     }
-    return;
   });
 
   if (ganre.length > 3) {
