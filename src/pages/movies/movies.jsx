@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, useLocation, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
 import { Pagination, Stack } from '@mui/material';
