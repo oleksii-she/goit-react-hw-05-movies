@@ -95,19 +95,19 @@ export const HomeItem = ({
   genresInfo.map(el => {
     switch (el.id) {
       case ganre[0]:
-        ganre[0] = el.name;
+        return (ganre[0] = el.name);
         break;
       case ganre[1]:
-        ganre[1] = el.name;
+        return (ganre[1] = el.name);
         break;
       case ganre[2]:
-        ganre[2] = el.name;
+        return (ganre[2] = el.name);
         break;
       case ganre[3]:
-        ganre[3] = el.name;
+        return (ganre[3] = el.name);
         break;
       case ganre[4]:
-        ganre[4] = el.name;
+        return (ganre[4] = el.name);
         break;
 
       default:
