@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
-import { Pagination, Stack, PaginationItem, Link } from '@mui/material';
+import { Pagination, Stack, PaginationItem } from '@mui/material';
 import { HomeList } from 'components/homeList/homeList';
 import toast from 'react-hot-toast';
 
