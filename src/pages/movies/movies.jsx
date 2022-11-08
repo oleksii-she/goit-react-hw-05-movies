@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
 import { Pagination, Stack, PaginationItem, Link } from '@mui/material';
@@ -42,7 +42,7 @@ const Movies = () => {
   }, [query, setSearchParams, pageQty, page]);
 
   const onSubmit = (query, page) => {
-    const nextParams = query !== '' ? { query, page } : {};
+    const nextParams = query !== '' ? { query } : {};
 
     setPage(1);
     setSearchParams(nextParams);
@@ -62,7 +62,7 @@ const Movies = () => {
             sx={{ marginY: 3, marginX: 'auto' }}
             renderItem={item => (
               <PaginationItem
-                component={Link}
+                component={NavLink}
                 to={`${searchParams}&page=${item.page}`}
                 {...item}
               />
