@@ -140,7 +140,7 @@ export const HomeItem = ({
 
       <div>
         <Title>{title ?? name}</Title>
-        <p>{date.slice(0, 4)}</p>
+        <p>{date}</p>
         <p>{ganres}</p>
       </div>
     </Item>

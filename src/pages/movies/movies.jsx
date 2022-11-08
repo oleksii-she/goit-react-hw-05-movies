@@ -24,7 +24,7 @@ const Movies = () => {
       }
       try {
         const resp = await searchApiMovie(query, page);
-
+        console.log(resp);
         if (resp.results.length > 0) {
           setItemsData(resp.results);
           setPageQty(resp.total_pages);
