@@ -10,15 +10,13 @@ const Movies = () => {
   const location = useLocation();
   const [itemsData, setItemsData] = useState([]);
   const [page, setPage] = useState(
-    parseInt(location.search?.split('=')[1] || 1)
+    parseInt(location.search?.split('=')[2] || 1)
   );
-  // const [page, setPage] = useState(1);
   const [pageQty, setPageQty] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const query = searchParams.get('query', page) ?? '';
+  const query = searchParams.get('query') ?? '';
 
-  console.log(location);
   useEffect(() => {
     const respSearchMovie = async () => {
       if (query === '') {
@@ -41,16 +39,15 @@ const Movies = () => {
     respSearchMovie();
   }, [query, setSearchParams, pageQty, page]);
 
-  const onSubmit = (query, page) => {
+  const onSubmit = query => {
     const nextParams = query !== '' ? { query } : {};
 
-    setPage(1);
     setSearchParams(nextParams);
   };
 
   return (
     <>
-      <FormSearch onSubmitSearchValue={onSubmit} page={page} />
+      <FormSearch onSubmitSearchValue={onSubmit} query={query} />
       <HomeList items={itemsData} />
 
       <Stack spacing={2}>

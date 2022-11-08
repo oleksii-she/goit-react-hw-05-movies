@@ -14,6 +14,7 @@ const Home = () => {
   const [page, setPage] = useState(
     parseInt(location.search?.split('=')[1] || 1)
   );
+
   const [pageQty, setPageQty] = useState(0);
   const [status, setStatus] = useState('idle');
   useEffect(() => {
