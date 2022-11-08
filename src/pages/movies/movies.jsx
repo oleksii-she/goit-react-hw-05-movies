@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { FormSearch } from 'components/searchForm/formSearch';
 import { searchApiMovie } from 'api/moviApi';
-import { Pagination, Stack } from '@mui/material';
+import { Pagination, Stack, PaginationItem, Link } from '@mui/material';
 import { HomeList } from 'components/homeList/homeList';
 import toast from 'react-hot-toast';
 
 const Movies = () => {
+  const location = useLocation();
   const [itemsData, setItemsData] = useState([]);
-  const [page, setPage] = useState(1);
-
+  const [page, setPage] = useState(
+    parseInt(location.search?.split('=')[1] || 1)
+  );
+  // const [page, setPage] = useState(1);
   const [pageQty, setPageQty] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const query = searchParams.get('query', 1) ?? '';
+  const query = searchParams.get('query', page) ?? '';
 
+  console.log(location);
   useEffect(() => {
     const respSearchMovie = async () => {
       if (query === '') {
@@ -37,15 +41,16 @@ const Movies = () => {
     respSearchMovie();
   }, [query, setSearchParams, pageQty, page]);
 
-  const onSubmit = query => {
-    const nextParams = query !== '' ? { query } : {};
+  const onSubmit = (query, page) => {
+    const nextParams = query !== '' ? { query, page } : {};
+
     setPage(1);
     setSearchParams(nextParams);
   };
 
   return (
     <>
-      <FormSearch onSubmitSearchValue={onSubmit} />
+      <FormSearch onSubmitSearchValue={onSubmit} page={page} />
       <HomeList items={itemsData} />
 
       <Stack spacing={2}>
@@ -55,13 +60,13 @@ const Movies = () => {
             page={page}
             onChange={(_, num) => setPage(num)}
             sx={{ marginY: 3, marginX: 'auto' }}
-            // renderItem={item => (
-            //   <PaginationItem
-            //     component={Link}
-            //     to={`${searchParams}&page=${item.page}`}
-            //     {...item}
-            //   />
-            // )}
+            renderItem={item => (
+              <PaginationItem
+                component={Link}
+                to={`${searchParams}&page=${item.page}`}
+                {...item}
+              />
+            )}
           />
         )}
       </Stack>
