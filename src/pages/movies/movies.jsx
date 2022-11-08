@@ -63,7 +63,7 @@ const Movies = () => {
             renderItem={item => (
               <PaginationItem
                 component={NavLink}
-                to={`${searchParams}&page=${item.page}`}
+                to={`?query=${query}&page=${item.page}`}
                 {...item}
               />
             )}

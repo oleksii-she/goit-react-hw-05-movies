@@ -27,7 +27,7 @@ const Home = () => {
           setPageQty(resp.total_pages);
         }
         if (sortItems === []) {
-          setItemsData(resp.results);
+          return setItemsData(resp.results);
         }
       } catch (error) {
         setStatus('rejected');
