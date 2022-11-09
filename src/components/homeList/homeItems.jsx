@@ -114,7 +114,7 @@ export const HomeItem = ({
         break;
     }
   });
-  const ganres = String(ganre).replaceAll(',', ', ');
+  // const ganres = String(ganre).replaceAll(',', ', ');
   if (ganre.length > 3) {
     return ganre.splice(0, 3);
   }
@@ -141,7 +141,7 @@ export const HomeItem = ({
       <div>
         <Title>{title ?? name}</Title>
         <p>{date}</p>
-        <p>{ganres}</p>
+        <p>{ganre}</p>
       </div>
     </Item>
   );
