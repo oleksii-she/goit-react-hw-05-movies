@@ -115,9 +115,9 @@ export const HomeItem = ({
     }
   });
   const ganres = String(ganre).replaceAll(',', ', ');
-  // if (ganre.length > 3) {
-  //   return ganre.splice(0, 3);
-  // }
+  if (ganre.length > 3) {
+    return ganre.splice(0, 3);
+  }
 
   return (
     <Item>
