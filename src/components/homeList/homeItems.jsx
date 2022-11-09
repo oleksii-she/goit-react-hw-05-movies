@@ -141,7 +141,7 @@ export const HomeItem = ({
       <div>
         <Title>{title ?? name}</Title>
         <p>{date}</p>
-        <p>{ganre}</p>
+        <p>{ganres}</p>
       </div>
     </Item>
   );
