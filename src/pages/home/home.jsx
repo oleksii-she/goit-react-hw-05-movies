@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { TrendingApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
 import { RejectedId } from 'components/rejected/rejected';
@@ -40,7 +40,6 @@ const Home = () => {
   const filter = sortData => {
     setSortItems(sortData);
   };
-
   if (status === 'rejected') {
     return <RejectedId />;
   }
