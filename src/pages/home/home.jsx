@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TrendingApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
 import { RejectedId } from 'components/rejected/rejected';
@@ -14,9 +14,9 @@ const Home = () => {
   const [page, setPage] = useState(
     parseInt(location.search?.split('=')[1] || 1)
   );
-
   const [pageQty, setPageQty] = useState(0);
   const [status, setStatus] = useState('idle');
+
   useEffect(() => {
     const respApiTrending = async () => {
       try {
