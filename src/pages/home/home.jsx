@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { TrendingApiMovie } from 'api/moviApi';
 import { HomeList } from 'components/homeList/homeList';
 import { RejectedId } from 'components/rejected/rejected';
@@ -10,7 +10,8 @@ const Home = () => {
   const location = useLocation();
 
   const [itemsData, setItemsData] = useState([]);
-  const [sortItems, setSortItems] = useState([]);
+
+  const [sortTypes, setSortTypes] = useState('default');
   const [page, setPage] = useState(
     parseInt(location.search?.split('=')[1] || 1)
   );
@@ -27,26 +28,43 @@ const Home = () => {
           setItemsData(resp.results);
           setPageQty(resp.total_pages);
         }
-        if (sortItems === []) {
-          return setItemsData(resp.results);
+        if (sortTypes === 'default') {
+          setItemsData(resp.results);
         }
       } catch (error) {
         setStatus('rejected');
       }
     };
     respApiTrending();
-  }, [page, pageQty, sortItems]);
+  }, [page, pageQty, sortTypes]);
 
-  const filter = sortData => {
-    setSortItems(sortData);
-  };
+  const sortItems = useMemo(() => {
+    switch (sortTypes) {
+      case 'default':
+        return itemsData;
+        break;
+      case 'A-z':
+        return itemsData.sort((a, b) => a.title.localeCompare(b.title));
+      case 'rating':
+        return itemsData.sort((a, b) => b.vote_average - a.vote_average);
+        break;
+      case 'popularity':
+        return itemsData.sort((a, b) => b.popularity - a.popularity);
+        break;
+      default:
+        break;
+    }
+  }, [itemsData, sortTypes, status]);
+
   if (status === 'rejected') {
     return <RejectedId />;
   }
+
   return (
     <>
-      <SortFilter items={itemsData} onChange={filter} page={page} />
-      <HomeList items={sortItems.length > 0 ? sortItems : itemsData} />
+      <SortFilter onChange={setSortTypes} />
+
+      <HomeList items={itemsData} />
 
       <Container>
         <Stack spacing={2}>

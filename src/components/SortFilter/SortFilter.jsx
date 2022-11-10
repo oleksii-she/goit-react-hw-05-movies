@@ -1,20 +1,16 @@
-export const SortFilter = ({ items, onChange, page }) => {
+export const SortFilter = ({ onChange }) => {
   const sortAz = e => {
     switch (e.target.value) {
       case 'default':
-        onChange([]);
+        return onChange('default');
         break;
-      case 'alphabetically':
-        const sortData = items.sort((a, b) => a.title.localeCompare(b.title));
-        onChange(sortData);
+      case 'A-z':
+        return onChange('A-z');
+      case 'rating':
+        return onChange('rating');
         break;
-      case 'rating from more':
-        const sortVote = items.sort((a, b) => b.vote_average - a.vote_average);
-        onChange(sortVote);
-        break;
-      case 'year from more':
-        const sortYear = items.sort((a, b) => b.vote_average - a.vote_average);
-        onChange(sortYear);
+      case 'popularity':
+        return onChange('popularity');
         break;
       default:
         break;
@@ -23,9 +19,15 @@ export const SortFilter = ({ items, onChange, page }) => {
   return (
     <select name="sort" id="sort" onChange={sortAz}>
       <option value="default">default</option>
-      <option value="alphabetically">alphabetically</option>
-      <option value="rating from more">rating from more</option>
-      <option value="year from more">year from more</option>
+      <option value="A-z">A-z</option>
+      <option value="rating">rating more</option>
+      <option value="popularity">popularity</option>
     </select>
   );
 };
+
+//   const sortData = items.sort((a, b) => a.title.localeCompare(b.title));
+
+//   const sortVote = items.sort((a, b) => b.vote_average - a.vote_average);
+
+//   const sortYear = items.sort((a, b) => b.vote_average - a.vote_average);
