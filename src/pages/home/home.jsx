@@ -54,7 +54,7 @@ const Home = () => {
       default:
         break;
     }
-  }, [itemsData, sortTypes, status]);
+  }, [itemsData, sortTypes]);
 
   if (status === 'rejected') {
     return <RejectedId />;
