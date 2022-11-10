@@ -8,10 +8,13 @@ export const List = styled.ul`
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+
   gap: 15px;
+  max-width: calc(100vw - 15px);
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   list-style: none;
-  margin: 0;
 `;
 
 export const Item = styled.li`

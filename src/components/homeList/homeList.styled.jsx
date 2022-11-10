@@ -5,7 +5,9 @@ export const ListStyled = styled.ul`
   gap: 31px;
   padding-top: 60px;
   padding-bottom: 60px;
-
+  max-width: calc(100vw - 31px);
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   list-style: none;
 `;

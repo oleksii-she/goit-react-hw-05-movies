@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { getMovieReviews } from 'api/moviApi';
 import { RejectedId } from 'components/rejected/rejected';
+import { Box, Title, List, Item } from './reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -29,18 +30,18 @@ const Reviews = () => {
   }
 
   return (
-    <div>
-      <h2>Reviews</h2>
-      <ul>
+    <Box>
+      <Title>Reviews</Title>
+      <List>
         {reviews.map(({ id, author, content, updated_at }) => {
           return (
-            <li key={id}>
+            <Item key={id}>
               <h2>{author}</h2> <p>{content}</p>
-            </li>
+            </Item>
           );
         })}
-      </ul>
-    </div>
+      </List>
+    </Box>
   );
 };
 
