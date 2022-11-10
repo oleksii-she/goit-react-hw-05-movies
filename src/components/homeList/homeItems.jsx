@@ -114,10 +114,10 @@ export const HomeItem = ({
         break;
     }
   });
-  if (ganre.length > 3) {
-    return ganre.splice(0, 3);
-  }
 
+  if (ganre.length > 3) {
+    ganre.splice(0, 3);
+  }
   const ganres = String(ganre).replaceAll(',', ', ');
 
   return (
