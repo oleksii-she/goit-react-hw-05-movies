@@ -8,6 +8,7 @@ import {
   LinkActiveDetalies,
   ListLink,
   Item,
+  BoxText,
 } from './movieDetails.styled';
 
 const MovieDetails = () => {
@@ -46,20 +47,21 @@ const MovieDetails = () => {
               alt={movies.original_title}
             />
           </div>
-          <div>
+          <BoxText>
             <h2>{movies.original_title}</h2>
             <p>{movies.overview}</p>
-          </div>
+            <ListLink>
+              <Item>
+                <LinkActiveDetalies to="cast">Cast</LinkActiveDetalies>
+              </Item>
+              <Item>
+                <LinkActiveDetalies to="reviews">Reviews</LinkActiveDetalies>
+              </Item>
+            </ListLink>
+          </BoxText>
         </ContentBox>
       )}
-      <ListLink>
-        <Item>
-          <LinkActiveDetalies to="cast">Cast</LinkActiveDetalies>
-        </Item>
-        <Item>
-          <LinkActiveDetalies to="reviews">Reviews</LinkActiveDetalies>
-        </Item>
-      </ListLink>
+
       <Suspense fallback={<BeatLoader color="#36d7b7" />}>
         <Outlet />
       </Suspense>

@@ -5,7 +5,7 @@ export const ListStyled = styled.ul`
   gap: 31px;
   padding-top: 60px;
   padding-bottom: 60px;
-  justify-content: center;
+
   display: flex;
   list-style: none;
 `;
@@ -38,7 +38,17 @@ export const Average = styled.span`
   color: #f4f2ee;
 `;
 
+export const ContentBox = styled.div`
+  max-width: fit-content;
+  padding: 5px;
+`;
+
 export const Title = styled.h2`
   margin-top: 5px;
   font-weight: 700;
+`;
+
+export const Ganres = styled.p`
+  color: orange;
+  font-weight: 500;
 `;

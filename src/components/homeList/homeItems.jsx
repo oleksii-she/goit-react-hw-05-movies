@@ -1,6 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ImgBox, Img, Item, Average, Title } from './homeList.styled';
+import {
+  ImgBox,
+  Img,
+  Item,
+  Average,
+  Title,
+  Ganres,
+  ContentBox,
+} from './homeList.styled';
 
 const genresInfo = [
   {
@@ -139,11 +147,12 @@ export const HomeItem = ({
         </picture>
       </ImgBox>
 
-      <div>
+      <ContentBox>
         <Title>{title ?? name}</Title>
+
+        <Ganres>{ganres}</Ganres>
         <p>{date}</p>
-        <p>{ganres}</p>
-      </div>
+      </ContentBox>
     </Item>
   );
 };
