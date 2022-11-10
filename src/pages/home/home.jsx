@@ -38,7 +38,7 @@ const Home = () => {
     respApiTrending();
   }, [page, pageQty, sortTypes]);
 
-  const sortItems = useMemo(() => {
+  useMemo(() => {
     switch (sortTypes) {
       case 'default':
         return itemsData;
