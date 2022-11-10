@@ -3,15 +3,15 @@ export const SortFilter = ({ onChange }) => {
     switch (e.target.value) {
       case 'default':
         return onChange('default');
-        break;
+
       case 'A-z':
         return onChange('A-z');
       case 'rating':
         return onChange('rating');
-        break;
+
       case 'popularity':
         return onChange('popularity');
-        break;
+
       default:
         break;
     }

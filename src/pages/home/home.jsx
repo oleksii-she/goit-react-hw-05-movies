@@ -42,15 +42,12 @@ const Home = () => {
     switch (sortTypes) {
       case 'default':
         return itemsData;
-        break;
       case 'A-z':
         return itemsData.sort((a, b) => a.title.localeCompare(b.title));
       case 'rating':
         return itemsData.sort((a, b) => b.vote_average - a.vote_average);
-        break;
       case 'popularity':
         return itemsData.sort((a, b) => b.popularity - a.popularity);
-        break;
       default:
         break;
     }

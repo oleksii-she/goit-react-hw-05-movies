@@ -45,4 +45,8 @@ export const Nav = styled.nav`
 
 export const Conteiner = styled.div`
   padding: ${p => p.theme.space[3]}px;
+
+  max-width: 1680px;
+
+  margin: auto;
 `;
