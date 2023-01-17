@@ -13,11 +13,13 @@ import {
 
 const MovieDetails = () => {
   const [movies, setMovies] = useState('');
+  const [toMovie, setToMovie] = useState(null);
   const { movieId } = useParams();
 
   const location = useLocation();
 
   useEffect(() => {
+    setToMovie(location.state?.from);
     const movieDetaliesApi = async () => {
       try {
         const resp = await getMovieDetails(movieId);
@@ -25,7 +27,8 @@ const MovieDetails = () => {
       } catch (error) {}
     };
     movieDetaliesApi();
-  }, [movieId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [movieId, setToMovie]);
 
   const defaultImg =
     'https://cdn.pixabay.com/photo/2014/03/25/16/27/movie-297135_960_720.png';
@@ -33,7 +36,7 @@ const MovieDetails = () => {
   return (
     <div>
       <div>
-        <Link to={location.state?.from ?? '/'}>go to back</Link>
+        <Link to={toMovie}>go to back</Link>
       </div>
       {movies && (
         <ContentBox>
